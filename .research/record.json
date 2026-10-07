@@ -391,6 +391,11 @@
               "text_sha256": "77187529e43e874ce4fbe6fb485c85b4ef3bdd9c2c8b2c3aabf0502ba867727c",
               "model": "gemini/gemini-2.5-flash",
               "supported": true
+            },
+            {
+              "text_sha256": "80906b420d259cd467a432aecf000807fd8a03d841994ca48032dc55b1b47181",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
             }
           ]
         },
@@ -454,6 +459,11 @@
               "model": "gemini/gemini-2.5-flash",
               "supported": false,
               "reason": "The citing text claims the report is for a 'scalar response oracle' and discusses 'SciGym' and 'information from a single experiment', none of which are present in the cited passage."
+            },
+            {
+              "text_sha256": "5ee5cb5b51ce7b0b5c7bf5d5ec6937680efa3062e35db5f1d33335167a30da40",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
             }
           ]
         },
