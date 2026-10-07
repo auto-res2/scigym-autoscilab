@@ -16,4 +16,5 @@ diversity_weight: 0.3
 confidence_threshold: 0.9
 n_bootstrap: 3
 concentration_bounds_factor: [0.2, 5.0]  # 実験で設定してよい初期濃度の範囲（既定値の倍率）
-workers: 4
+workers: 16
+stall_timeout: 900  # 出力が止まってからこの秒数で試行を打ち切る。ループは反復ごと（2〜3 分）に出力する

@@ -331,6 +331,7 @@ class Loop:
         if self.best is not None:
             fit(self.best, self.obs, rng=self.rng)
         self.finish(confidence)
+        self.system.worker.close()
 
     def finish(self, confidence: float) -> None:
         if self.best is not None:
@@ -339,6 +340,7 @@ class Loop:
         (self.out / "tokens.json").write_text(json.dumps({
             "input_tokens": self.tokens.input_tokens, "output_tokens": self.tokens.output_tokens, "llm_calls": self.tokens.calls,
             "n_experiments": self.n_experiments, "n_rounds": len(self.trace),
+            "sim_worker_restarts": self.system.worker.restarts,  # ODE が止まって子プロセスを作り直した回数
             "best_fit_error": self.best.fit_error if self.best else None, "final_confidence": confidence,
             "submitted": self.best is not None,
         }))

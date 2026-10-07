@@ -98,7 +98,8 @@ def main():
     cfg.update(cli)
     cfg["run"] = yaml.safe_load(open(f"config/run/{run_id}.yaml"))
     split = cfg["run"]["split"]
-    cfg = SimpleNamespace(**cfg, method=cfg["run"]["method"], workers=cfg["run"]["workers"], task=f"scigym_{split}")
+    cfg.update({k: v for k, v in cfg["run"].items() if k in ("workers", "instance_timeout", "stall_timeout")})  # run ごとの上書き
+    cfg = SimpleNamespace(**cfg, method=cfg["run"]["method"], task=f"scigym_{split}")
     run_dir = Path(cfg.results_dir) / run_id
     todo = instances(cfg.data_root, split, cfg.mode)
     stage = cfg.mode.upper()
