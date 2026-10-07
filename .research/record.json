@@ -59,6 +59,11 @@
               "text_sha256": "43e7d4f67ddfdd4624a4db6b28f510ca9af9dcf324e218f6de7ca54ffbbd293b",
               "model": "gemini/gemini-2.5-flash",
               "supported": true
+            },
+            {
+              "text_sha256": "bba20d9b36738fc9a7d91696b553aaea2aee236d174400d3a40a3843ab62ff58",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
             }
           ]
         },
@@ -79,6 +84,11 @@
             },
             {
               "text_sha256": "43e7d4f67ddfdd4624a4db6b28f510ca9af9dcf324e218f6de7ca54ffbbd293b",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
+            },
+            {
+              "text_sha256": "bba20d9b36738fc9a7d91696b553aaea2aee236d174400d3a40a3843ab62ff58",
               "model": "gemini/gemini-2.5-flash",
               "supported": true
             }
@@ -224,6 +234,11 @@
               "model": "gemini/gemini-2.5-flash",
               "supported": false,
               "reason": "The citing text claims to use Controller.run_benchmark without modification. The passage s1.p11 only provides the definition of the run_benchmark method signature, not its class context (Controller) nor details about its usage (unmodified). The citing text adds information about the method's context and how it is used that is not present in the cited passage."
+            },
+            {
+              "text_sha256": "bba20d9b36738fc9a7d91696b553aaea2aee236d174400d3a40a3843ab62ff58",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
             }
           ]
         },
@@ -314,6 +329,11 @@
               "text_sha256": "925470b2db2ecb626f14303e060dda4e7748329e2905b618dfbd289fcaf5c6f8",
               "model": "gemini/gemini-2.5-flash",
               "supported": true
+            },
+            {
+              "text_sha256": "77187529e43e874ce4fbe6fb485c85b4ef3bdd9c2c8b2c3aabf0502ba867727c",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
             }
           ]
         },
@@ -364,6 +384,11 @@
             },
             {
               "text_sha256": "925470b2db2ecb626f14303e060dda4e7748329e2905b618dfbd289fcaf5c6f8",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
+            },
+            {
+              "text_sha256": "77187529e43e874ce4fbe6fb485c85b4ef3bdd9c2c8b2c3aabf0502ba867727c",
               "model": "gemini/gemini-2.5-flash",
               "supported": true
             }
@@ -418,6 +443,11 @@
               "text_sha256": "a61ce479062206ecb570a65138b00c584cada6ed536b17bf235dc0de2f6da876",
               "model": "gemini/gemini-2.5-flash",
               "supported": true
+            },
+            {
+              "text_sha256": "77187529e43e874ce4fbe6fb485c85b4ef3bdd9c2c8b2c3aabf0502ba867727c",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
             }
           ]
         },
@@ -433,6 +463,11 @@
             },
             {
               "text_sha256": "925470b2db2ecb626f14303e060dda4e7748329e2905b618dfbd289fcaf5c6f8",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
+            },
+            {
+              "text_sha256": "77187529e43e874ce4fbe6fb485c85b4ef3bdd9c2c8b2c3aabf0502ba867727c",
               "model": "gemini/gemini-2.5-flash",
               "supported": true
             }
@@ -516,6 +551,11 @@
               "model": "gemini/gemini-2.5-flash",
               "supported": false,
               "reason": "The citing text specifies \"3 types of initial concentrations\" as input, which is not stated in the passage or generally implied by the provided context of the adapter definition, though initial concentrations as input are."
+            },
+            {
+              "text_sha256": "77187529e43e874ce4fbe6fb485c85b4ef3bdd9c2c8b2c3aabf0502ba867727c",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
             }
           ]
         },
