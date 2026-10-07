@@ -945,7 +945,80 @@
                     "workers": 16,
                     "instance_timeout": 14400,
                     "stall_timeout": 3600
-                  }
+                  },
+                  "results": [
+                    {
+                      "id": "37651413177",
+                      "commit": "ef51f93253ba25eb990fc97da2bfa9f1e6966595",
+                      "eval_inputs": {
+                        "path": ".research/results/react-luna/eval_inputs/scigym_small.json.gz",
+                        "sha256": "635b0c4bf86b2cc25f63c6ddf70b3d6f649fb44138562959aa151e2c58291313"
+                      },
+                      "eval_report": {
+                        "task_type": "scigym_small",
+                        "task_signature": "scigym_small/v1@139c6084495c",
+                        "inputs_sha256": "7949c4effd6a440ae8c6df8b8ee0c999e7f2626bcba98099328f14a8d5ca9a66",
+                        "versions": {
+                          "airas-eval": "0.13.1",
+                          "libroadrunner": "2.7.0",
+                          "python-libsbml": "5.20.4",
+                          "scigym": "0.0.1"
+                        },
+                        "metrics": {
+                          "reaction_f1": 0.3970667420482113,
+                          "reaction_f1_vs_best_published": 0.05876674204821131,
+                          "reaction_f1_with_modifiers": 0.23899495942524826,
+                          "reaction_precision": 0.4168346657397752,
+                          "reaction_precision_with_modifiers": 0.25965597617159997,
+                          "reaction_recall": 0.3974858069748581,
+                          "reaction_recall_with_modifiers": 0.23407484648360558,
+                          "topology_f1": 0.5075243145729366,
+                          "topology_f1_modifier_product": 0.07455738705738707,
+                          "topology_f1_reactant_modifier": 0.053902116402116396,
+                          "topology_f1_reactant_product": 0.4123581611513407,
+                          "topology_precision": 0.6205418963034609,
+                          "topology_recall": 0.474208329381707,
+                          "trajectory_smape": 0.21507884881459527,
+                          "trajectory_smape_vs_best_published": -0.10612115118540472
+                        },
+                        "inputs_summary": {
+                          "n_instances": 137.0,
+                          "n_valid_submissions": 137.0
+                        },
+                        "skipped": {
+                          "missing_dependency": {},
+                          "missing_optional_input": [],
+                          "not_applicable": {},
+                          "undefined_on_data": {}
+                        }
+                      },
+                      "metrics": {
+                        "reaction_f1": 0.3970667420482113,
+                        "reaction_f1_vs_best_published": 0.05876674204821131,
+                        "reaction_f1_with_modifiers": 0.23899495942524826,
+                        "reaction_precision": 0.4168346657397752,
+                        "reaction_precision_with_modifiers": 0.25965597617159997,
+                        "reaction_recall": 0.3974858069748581,
+                        "reaction_recall_with_modifiers": 0.23407484648360558,
+                        "topology_f1": 0.5075243145729366,
+                        "topology_f1_modifier_product": 0.07455738705738707,
+                        "topology_f1_reactant_modifier": 0.053902116402116396,
+                        "topology_f1_reactant_product": 0.4123581611513407,
+                        "topology_precision": 0.6205418963034609,
+                        "topology_recall": 0.474208329381707,
+                        "trajectory_smape": 0.21507884881459527,
+                        "trajectory_smape_vs_best_published": -0.10612115118540472,
+                        "n_instances": 137.0,
+                        "n_valid_submissions": 137.0,
+                        "input_tokens": 44381477,
+                        "output_tokens": 2411615,
+                        "mean_experiments": 12.014598540145986,
+                        "n_with_submission": 137,
+                        "n_context_overflow": 0,
+                        "n_not_finished": 0
+                      }
+                    }
+                  ]
                 }
               ],
               "quoted_passage_ids": [
@@ -991,6 +1064,8 @@
             "s1.p1",
             "s1.p2"
           ],
+          "verified": true,
+          "verdict": "supported",
           "criterion": {
             "metric": "reaction_f1",
             "subject": "react-luna",
@@ -1046,7 +1121,80 @@
                     "workers": 16,
                     "instance_timeout": 14400,
                     "stall_timeout": 900
-                  }
+                  },
+                  "results": [
+                    {
+                      "id": "37651406730",
+                      "commit": "ef51f93253ba25eb990fc97da2bfa9f1e6966595",
+                      "eval_inputs": {
+                        "path": ".research/results/autoscilab-luna/eval_inputs/scigym_small.json.gz",
+                        "sha256": "1a420af1c5f45b7e8b88a48462a01b2a0df55fc6977f29a34b32de507719adb7"
+                      },
+                      "eval_report": {
+                        "task_type": "scigym_small",
+                        "task_signature": "scigym_small/v1@139c6084495c",
+                        "inputs_sha256": "69c525edce70d92990e57735a333eba6466276828b024961eb90080c3d1c68c8",
+                        "versions": {
+                          "airas-eval": "0.13.1",
+                          "libroadrunner": "2.7.0",
+                          "python-libsbml": "5.20.4",
+                          "scigym": "0.0.1"
+                        },
+                        "metrics": {
+                          "reaction_f1": 0.45798840815789565,
+                          "reaction_f1_vs_best_published": 0.11968840815789566,
+                          "reaction_f1_with_modifiers": 0.21850316445636322,
+                          "reaction_precision": 0.45549288505492885,
+                          "reaction_precision_with_modifiers": 0.22681928776819282,
+                          "reaction_recall": 0.4794664581160931,
+                          "reaction_recall_with_modifiers": 0.2220165681844514,
+                          "topology_f1": 0.6548061533145044,
+                          "topology_f1_modifier_product": 0.20342352092352095,
+                          "topology_f1_reactant_modifier": 0.1338376322751323,
+                          "topology_f1_reactant_product": 0.3121131517185781,
+                          "topology_precision": 0.754372594153616,
+                          "topology_recall": 0.6267406353228032,
+                          "trajectory_smape": 0.31334489302735635,
+                          "trajectory_smape_vs_best_published": -0.007855106972643633
+                        },
+                        "inputs_summary": {
+                          "n_instances": 137.0,
+                          "n_valid_submissions": 134.0
+                        },
+                        "skipped": {
+                          "missing_dependency": {},
+                          "missing_optional_input": [],
+                          "not_applicable": {},
+                          "undefined_on_data": {}
+                        }
+                      },
+                      "metrics": {
+                        "reaction_f1": 0.45798840815789565,
+                        "reaction_f1_vs_best_published": 0.11968840815789566,
+                        "reaction_f1_with_modifiers": 0.21850316445636322,
+                        "reaction_precision": 0.45549288505492885,
+                        "reaction_precision_with_modifiers": 0.22681928776819282,
+                        "reaction_recall": 0.4794664581160931,
+                        "reaction_recall_with_modifiers": 0.2220165681844514,
+                        "topology_f1": 0.6548061533145044,
+                        "topology_f1_modifier_product": 0.20342352092352095,
+                        "topology_f1_reactant_modifier": 0.1338376322751323,
+                        "topology_f1_reactant_product": 0.3121131517185781,
+                        "topology_precision": 0.754372594153616,
+                        "topology_recall": 0.6267406353228032,
+                        "trajectory_smape": 0.31334489302735635,
+                        "trajectory_smape_vs_best_published": -0.007855106972643633,
+                        "n_instances": 137.0,
+                        "n_valid_submissions": 134.0,
+                        "input_tokens": 3368086,
+                        "output_tokens": 2047931,
+                        "mean_experiments": 20.0,
+                        "n_with_submission": 134,
+                        "n_context_overflow": 0,
+                        "n_not_finished": 3
+                      }
+                    }
+                  ]
                 }
               ],
               "quoted_passage_ids": [
@@ -1136,6 +1284,8 @@
             "s1.p5",
             "s1.p10"
           ],
+          "verified": true,
+          "verdict": "refuted",
           "criterion": {
             "metric": "trajectory_smape",
             "subject": "autoscilab-luna",
@@ -1191,7 +1341,80 @@
                     "workers": 16,
                     "instance_timeout": 14400,
                     "stall_timeout": 900
-                  }
+                  },
+                  "results": [
+                    {
+                      "id": "37651409648",
+                      "commit": "ef51f93253ba25eb990fc97da2bfa9f1e6966595",
+                      "eval_inputs": {
+                        "path": ".research/results/autoscilab-nohyp-luna/eval_inputs/scigym_small.json.gz",
+                        "sha256": "e45482f98f866f97c8e9c4b458d9dcefb2b7e5099fc8333d3c44825bb6d4caf4"
+                      },
+                      "eval_report": {
+                        "task_type": "scigym_small",
+                        "task_signature": "scigym_small/v1@139c6084495c",
+                        "inputs_sha256": "22c2ea181cc43cc6e14e844b7e7eca3fe651e2e094e4700bb05015904a144ba5",
+                        "versions": {
+                          "airas-eval": "0.13.1",
+                          "libroadrunner": "2.7.0",
+                          "python-libsbml": "5.20.4",
+                          "scigym": "0.0.1"
+                        },
+                        "metrics": {
+                          "reaction_f1": 0.42526962208155833,
+                          "reaction_f1_vs_best_published": 0.08696962208155834,
+                          "reaction_f1_with_modifiers": 0.19391964602355324,
+                          "reaction_precision": 0.42005956330773847,
+                          "reaction_precision_with_modifiers": 0.19990520428476627,
+                          "reaction_recall": 0.445939056887962,
+                          "reaction_recall_with_modifiers": 0.19667767350249096,
+                          "topology_f1": 0.6588887438644191,
+                          "topology_f1_modifier_product": 0.21240786341120793,
+                          "topology_f1_reactant_modifier": 0.11851851851851851,
+                          "topology_f1_reactant_product": 0.3395546533347917,
+                          "topology_precision": 0.7658965932688564,
+                          "topology_recall": 0.6362381882910699,
+                          "trajectory_smape": 0.3181436913257628,
+                          "trajectory_smape_vs_best_published": -0.0030563086742371737
+                        },
+                        "inputs_summary": {
+                          "n_instances": 137.0,
+                          "n_valid_submissions": 129.0
+                        },
+                        "skipped": {
+                          "missing_dependency": {},
+                          "missing_optional_input": [],
+                          "not_applicable": {},
+                          "undefined_on_data": {}
+                        }
+                      },
+                      "metrics": {
+                        "reaction_f1": 0.42526962208155833,
+                        "reaction_f1_vs_best_published": 0.08696962208155834,
+                        "reaction_f1_with_modifiers": 0.19391964602355324,
+                        "reaction_precision": 0.42005956330773847,
+                        "reaction_precision_with_modifiers": 0.19990520428476627,
+                        "reaction_recall": 0.445939056887962,
+                        "reaction_recall_with_modifiers": 0.19667767350249096,
+                        "topology_f1": 0.6588887438644191,
+                        "topology_f1_modifier_product": 0.21240786341120793,
+                        "topology_f1_reactant_modifier": 0.11851851851851851,
+                        "topology_f1_reactant_product": 0.3395546533347917,
+                        "topology_precision": 0.7658965932688564,
+                        "topology_recall": 0.6362381882910699,
+                        "trajectory_smape": 0.3181436913257628,
+                        "trajectory_smape_vs_best_published": -0.0030563086742371737,
+                        "n_instances": 137.0,
+                        "n_valid_submissions": 129.0,
+                        "input_tokens": 3202975,
+                        "output_tokens": 1977414,
+                        "mean_experiments": 20.0,
+                        "n_with_submission": 129,
+                        "n_context_overflow": 0,
+                        "n_not_finished": 8
+                      }
+                    }
+                  ]
                 }
               ],
               "quoted_passage_ids": [
@@ -1267,6 +1490,8 @@
             "s2.p7",
             "s2.p11"
           ],
+          "verified": true,
+          "verdict": "refuted",
           "criterion": {
             "metric": "trajectory_smape",
             "subject": "autoscilab-nohyp-luna",
