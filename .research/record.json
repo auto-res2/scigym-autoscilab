@@ -42,63 +42,167 @@
         {
           "id": "s1.p1",
           "node_type": "setup",
-          "quote": "The agent may submit its final model and conclude the discovery process at any point, subject to a maximum iteration limit (20 in our benchmark)."
+          "quote": "The agent may submit its final model and conclude the discovery process at any point, subject to a maximum iteration limit (20 in our benchmark).",
+          "judgments": [
+            {
+              "text_sha256": "52901a22f367cd957baa8c0ecd377de6d40ed759cc6a747e071fce7a0e1159a9",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
+            },
+            {
+              "text_sha256": "3affc0e74575dac7bbd0e5d7a62d328f77d69b280cb7167c28aa12ac7cc2b32e",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": false,
+              "reason": "The citing text attributes \"temperature 1.0\" to the source and includes a reason for the number of ReAct experiments being 20 or less (\"iterations include code execution only iterations\") that are not present in the cited passage or its context."
+            }
+          ]
         },
         {
           "id": "s1.p2",
           "node_type": "setup",
-          "quote": "If the submitted model is invalid or cannot be simulated, we allow for 3 additional debugging iterations before evaluating against the incomplete SBML structure"
+          "quote": "If the submitted model is invalid or cannot be simulated, we allow for 3 additional debugging iterations before evaluating against the incomplete SBML structure",
+          "judgments": [
+            {
+              "text_sha256": "52901a22f367cd957baa8c0ecd377de6d40ed759cc6a747e071fce7a0e1159a9",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
+            },
+            {
+              "text_sha256": "3affc0e74575dac7bbd0e5d7a62d328f77d69b280cb7167c28aa12ac7cc2b32e",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
+            }
+          ]
         },
         {
           "id": "s1.p3",
           "node_type": "method",
-          "quote": "We implemented a ReAct-style agent (Yao et al., 2023)using a Thoughts-Actions-Observations framework due to its simplicity for comparing performance across different models."
+          "quote": "We implemented a ReAct-style agent (Yao et al., 2023)using a Thoughts-Actions-Observations framework due to its simplicity for comparing performance across different models.",
+          "judgments": [
+            {
+              "text_sha256": "55bc8284ec39de9d77b4ba622f23be7ff38adec27c10ae4f87076bb2d3fed419",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
+            }
+          ]
         },
         {
           "id": "s1.p4",
           "node_type": "setup",
-          "quote": "In our experiments, we allow agents to use one simple type of perturbations: changing the initial concentrations of a species"
+          "quote": "In our experiments, we allow agents to use one simple type of perturbations: changing the initial concentrations of a species",
+          "judgments": [
+            {
+              "text_sha256": "d9f3fa67b4284d12d7d25ae0c5c47a5ee4401d6446c8f067de9ccb8082d5ab9e",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
+            },
+            {
+              "text_sha256": "173d292d4b6387aad32bdbc87bbbd12c2289ca0935eeec05539d3fb1b33c8eb1",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": false,
+              "reason": "The citing text specifies \"all species\" (全種の) when the passage only states \"time-series data\" without explicitly mentioning \"all species\"."
+            }
+          ]
         },
         {
           "id": "s1.p5",
           "node_type": "definition",
-          "quote": "Simulation Trajectory Error (STE). This metric evaluates how accurately the predicted system matches the dynamic behavior of the true system by comparing time-series trajectories of each species."
+          "quote": "Simulation Trajectory Error (STE). This metric evaluates how accurately the predicted system matches the dynamic behavior of the true system by comparing time-series trajectories of each species.",
+          "judgments": [
+            {
+              "text_sha256": "52901a22f367cd957baa8c0ecd377de6d40ed759cc6a747e071fce7a0e1159a9",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
+            }
+          ]
         },
         {
           "id": "s1.p6",
           "node_type": "definition",
-          "quote": "We consider two reactions \"matched\" if they have identical sets of reactants and products. In the second, more stringent version, we additionally require matching modifiers."
+          "quote": "We consider two reactions \"matched\" if they have identical sets of reactants and products. In the second, more stringent version, we additionally require matching modifiers.",
+          "judgments": [
+            {
+              "text_sha256": "52901a22f367cd957baa8c0ecd377de6d40ed759cc6a747e071fce7a0e1159a9",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
+            }
+          ]
         },
         {
           "id": "s1.p7",
           "node_type": "definition",
-          "quote": "To assess success in recovering the correct system topology, we measure pairwise interactions between all species in the system and calculate F1 score."
+          "quote": "To assess success in recovering the correct system topology, we measure pairwise interactions between all species in the system and calculate F1 score.",
+          "judgments": [
+            {
+              "text_sha256": "e00a491e6b0ef531e7cf77fcf731666d72e4fa712936866c929fd04d26cca79c",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
+            }
+          ]
         },
         {
           "id": "s1.p8",
           "node_type": "gap",
-          "quote": "This perturbation type, when strategically designed, provides substantial information about species relationships, reaction types, kinetic laws, and reaction rates."
+          "quote": "This perturbation type, when strategically designed, provides substantial information about species relationships, reaction types, kinetic laws, and reaction rates.",
+          "judgments": [
+            {
+              "text_sha256": "55bc8284ec39de9d77b4ba622f23be7ff38adec27c10ae4f87076bb2d3fed419",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": false,
+              "reason": "The citing text replaces 'reaction rates' with 'rate rates' with 'rate constants'."
+            }
+          ]
         },
         {
           "id": "s1.p9",
           "node_type": "setup",
-          "quote": "Due to computational resource constraints, we restricted our evaluation to SCIGYM-small, with a total of 137 tasks."
+          "quote": "Due to computational resource constraints, we restricted our evaluation to SCIGYM-small, with a total of 137 tasks.",
+          "judgments": [
+            {
+              "text_sha256": "8121dbd03842fd39ad65949135baf116d3f5278afb2e4c48b8cc7f3b47976a72",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
+            }
+          ]
         },
         {
           "id": "s1.p10",
           "node_type": "result",
           "anchor": "table",
-          "quote": "GPT-4.1-mini 0.6007 0.1516 0.1253 0.1320 0.2530 0.2313 0.2322"
+          "quote": "GPT-4.1-mini 0.6007 0.1516 0.1253 0.1320 0.2530 0.2313 0.2322",
+          "judgments": [
+            {
+              "text_sha256": "3ce0cbd776e27bfc9d91e0d0f32fbe4bbd81d2ff0ac18fdf16036a458c1bd314",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": false,
+              "reason": "The citing text claims the range of RMS F1 values is 0.10-0.34, but the passage's context (Table 1) shows values as low as 0.0421, meaning the lower bound of the cited range is an overstatement."
+            }
+          ]
         },
         {
           "id": "s1.p11",
           "node_type": "method",
-          "quote": "def run_benchmark(self, model: LLM) -> None:"
+          "quote": "def run_benchmark(self, model: LLM) -> None:",
+          "judgments": [
+            {
+              "text_sha256": "3affc0e74575dac7bbd0e5d7a62d328f77d69b280cb7167c28aa12ac7cc2b32e",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
+            }
+          ]
         },
         {
           "id": "s1.p12",
           "node_type": "method",
-          "quote": "def call_simulator(self, config: ExperimentConfig) -> ExperimentResult:"
+          "quote": "def call_simulator(self, config: ExperimentConfig) -> ExperimentResult:",
+          "judgments": [
+            {
+              "text_sha256": "173d292d4b6387aad32bdbc87bbbd12c2289ca0935eeec05539d3fb1b33c8eb1",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": false,
+              "reason": "The citing text claims \"唯一の口\" (the only interface) which is not stated in the passage, and \"全種の時系列が返る\" (returns time series for all species) which is contradicted by the `config.observed_species` check implying specific species can be requested."
+            }
+          ]
         }
       ]
     },
@@ -140,52 +244,142 @@
         {
           "id": "s2.p1",
           "node_type": "result",
-          "quote": "hypothesis-guided experimentation is 2–5× more sample-efficient than the strongest competing baselines"
+          "quote": "hypothesis-guided experimentation is 2–5× more sample-efficient than the strongest competing baselines",
+          "judgments": [
+            {
+              "text_sha256": "89d77cbc7dadfedb5be4ba9bb6f01645ca576e85f1cf47fab735a96c12473562",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
+            }
+          ]
         },
         {
           "id": "s2.p2",
           "node_type": "claim",
-          "quote": "We propose a hypothesis-conditioned acquisition strategy that selects experiments maximizing disagreement among competing hypotheses, improving sample efficiency under fixed budgets."
+          "quote": "We propose a hypothesis-conditioned acquisition strategy that selects experiments maximizing disagreement among competing hypotheses, improving sample efficiency under fixed budgets.",
+          "judgments": [
+            {
+              "text_sha256": "726b4170aa2f87f415859761b63d9ac522b1256c4a843abaf69853a664d9f835",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": false,
+              "reason": "The passage states the strategy improves \"sample efficiency\" under fixed budgets, but the citing text claims it improves \"mechanism recovery\". While related, the passage does not explicitly mention \"mechanism recovery\" for this specific contribution."
+            }
+          ]
         },
         {
           "id": "s2.p3",
           "node_type": "gap",
-          "quote": "most existing systems are both representation-specific and passive, searching within a predetermined output space, such as equations, materials, or programs, and use LLMs primarily for post-hoc hypothesis generation and refinement over pre-collected, static datasets"
+          "quote": "most existing systems are both representation-specific and passive, searching within a predetermined output space, such as equations, materials, or programs, and use LLMs primarily for post-hoc hypothesis generation and refinement over pre-collected, static datasets",
+          "judgments": [
+            {
+              "text_sha256": "8692f437358e99428fda9eaacc8543f08ecfae883791ee6d4071b9dbba308058",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
+            }
+          ]
         },
         {
           "id": "s2.p4",
           "node_type": "setup",
-          "quote": "We use GPT-4o-mini as the primary LLM backbone and Qwen/Qwen2.5-7B-Instruct for the smaller models used in adaptive ensembling."
+          "quote": "We use GPT-4o-mini as the primary LLM backbone and Qwen/Qwen2.5-7B-Instruct for the smaller models used in adaptive ensembling.",
+          "judgments": [
+            {
+              "text_sha256": "1da5dfeaabbb25fed60c847b57fcc3fff35e7f1418b97a1743b62609c56b2923",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
+            },
+            {
+              "text_sha256": "85b428699afea66425cc359c2368a8b09472d2cbb780fb83cde1555556e96f29",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": false,
+              "reason": "The citing text adds specific model choices (openai/gpt-6-luna for large, meta/llama-3.1-8b as a substitute for small) and a reason for substitution (Vercel AI Gateway unavailability) that are not present in the cited passage. The passage names GPT-4o-mini and Qwen/Qwen2.5-7B-Instruct."
+            }
+          ]
         },
         {
           "id": "s2.p5",
           "node_type": "setup",
-          "quote": "the oracle is a noiseless black-box function"
+          "quote": "the oracle is a noiseless black-box function",
+          "judgments": [
+            {
+              "text_sha256": "726b4170aa2f87f415859761b63d9ac522b1256c4a843abaf69853a664d9f835",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
+            }
+          ]
         },
         {
           "id": "s2.p6",
           "node_type": "method",
-          "quote": "where candidate mechanisms in Ht make maximally divergent predictions"
+          "quote": "where candidate mechanisms in Ht make maximally divergent predictions",
+          "judgments": [
+            {
+              "text_sha256": "8bf10d48b32d37be779ad7ec3018d1bf491bf445671b5d2961175810be6f3170",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
+            }
+          ]
         },
         {
           "id": "s2.p7",
           "node_type": "result",
-          "quote": "causes a substantial drop across all benchmarks, showing that candidate mechanisms must guide data acquisition under limited oracle budgets"
+          "quote": "causes a substantial drop across all benchmarks, showing that candidate mechanisms must guide data acquisition under limited oracle budgets",
+          "judgments": [
+            {
+              "text_sha256": "726b4170aa2f87f415859761b63d9ac522b1256c4a843abaf69853a664d9f835",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": false,
+              "reason": "The citing text claims the drop was the 'largest' ('最も大きかった'), but the passage only states it was 'substantial' ('substantial drop') and does not compare it to other ablation results."
+            },
+            {
+              "text_sha256": "a2aea1addf6fd3d3b19444f0c8050cc4fedc7d41cdfe691f79e274d4780b5b5a",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": false,
+              "reason": "The passage describes a qualitative result of an ablation study (\"substantial drop\") and its implication, but it does not provide any quantitative basis or numerical values for a specific prediction interval like \"[0.01, 0.08]\" as claimed by the citing text."
+            },
+            {
+              "text_sha256": "90c1aa0e0301c289a5ee349a7f77c4bea62e8978224448d55c25c05813d8464f",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": false,
+              "reason": "The citing text describes the implementation details of 'removing hypothesis-conditioned acquisition' (setting discrepancy score to 0, greedy selection based on diversity, filling concentration space independently of the hypothesis) and claims its ablation corresponds to the one mentioned in the cited passage. However, the cited passage only names the ablation and states its effect, without defining what 'hypothesis-conditioned acquisition' entails or how its removal is implemented. Therefore, the citing text adds information about the nature of this ablation that is not supported by the passage."
+            }
+          ]
         },
         {
           "id": "s2.p8",
           "node_type": "gap",
-          "quote": "Performance also depends on the quality of LLM-generated hypotheses and on the coverage of the parser and refinement backends."
+          "quote": "Performance also depends on the quality of LLM-generated hypotheses and on the coverage of the parser and refinement backends.",
+          "judgments": [
+            {
+              "text_sha256": "726b4170aa2f87f415859761b63d9ac522b1256c4a843abaf69853a664d9f835",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
+            }
+          ]
         },
         {
           "id": "s2.p9",
           "node_type": "setup",
-          "quote": "In the paper configuration, the smaller ensemble model is sampled in parallel with base ensemble size K = 5"
+          "quote": "In the paper configuration, the smaller ensemble model is sampled in parallel with base ensemble size K = 5",
+          "judgments": [
+            {
+              "text_sha256": "8bf10d48b32d37be779ad7ec3018d1bf491bf445671b5d2961175810be6f3170",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
+            }
+          ]
         },
         {
           "id": "s2.p10",
           "node_type": "setup",
-          "quote": "Sampling stops when the entropy change between successive batches falls below 0.1, or when the hard cap of Kmax = 20 samples is reached."
+          "quote": "Sampling stops when the entropy change between successive batches falls below 0.1, or when the hard cap of Kmax = 20 samples is reached.",
+          "judgments": [
+            {
+              "text_sha256": "8bf10d48b32d37be779ad7ec3018d1bf491bf445671b5d2961175810be6f3170",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
+            }
+          ]
         },
         {
           "id": "s2.p11",
@@ -195,17 +389,43 @@
         {
           "id": "s2.p12",
           "node_type": "setup",
-          "quote": "Once confidence exceeds the threshold (0.9 in the paper configuration), the system switches to a refinement regime, where acquisition is driven by uncertainty sampling"
+          "quote": "Once confidence exceeds the threshold (0.9 in the paper configuration), the system switches to a refinement regime, where acquisition is driven by uncertainty sampling",
+          "judgments": [
+            {
+              "text_sha256": "bf0adefc5e0b6b93fcb6fb761682b57fb38f530b3b47a2e95cfd1f5418892dbb",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
+            }
+          ]
         },
         {
           "id": "s2.p13",
           "node_type": "setup",
-          "quote": "ensemble sampling uses a temperature of 1.0 for structural diversity"
+          "quote": "ensemble sampling uses a temperature of 1.0 for structural diversity",
+          "judgments": [
+            {
+              "text_sha256": "d4bed95d14922418fd42144eb9d815872f3f23bb0f9656fcc15c21af7be11543",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
+            },
+            {
+              "text_sha256": "85b428699afea66425cc359c2368a8b09472d2cbb780fb83cde1555556e96f29",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
+            }
+          ]
         },
         {
           "id": "s2.p14",
           "node_type": "gap",
-          "quote": "In this adapter we optimize a scalar simulator response rather than"
+          "quote": "In this adapter we optimize a scalar simulator response rather than",
+          "judgments": [
+            {
+              "text_sha256": "726b4170aa2f87f415859761b63d9ac522b1256c4a843abaf69853a664d9f835",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
+            }
+          ]
         },
         {
           "id": "s2.p15",
