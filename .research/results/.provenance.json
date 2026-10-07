@@ -33,6 +33,23 @@
         ".research/results/autoscilab-nohyp-luna/observed.json": "1050dee46460fd1268cc2f25d3cd959f8025af3ca54e719978f631bb2b841d15",
         ".research/results/autoscilab-nohyp-luna/tokens.json": "b40b3b12d6ded080177b3de0e09ea05677be079c239b744638332e43d66c3bf1"
       }
+    },
+    "react-luna": {
+      "execution_id": "37651413177",
+      "backend": "github_actions",
+      "commit_hash": "ef51f93253ba25eb990fc97da2bfa9f1e6966595",
+      "overrides": {
+        "mode": "full"
+      },
+      "parameters": {},
+      "files": {
+        ".research/results/react-luna/eval_inputs/scigym_small.json.gz": "635b0c4bf86b2cc25f63c6ddf70b3d6f649fb44138562959aa151e2c58291313",
+        ".research/results/react-luna/evaluation/scigym_small.json": "2e41dcb747a162d1031d0861dfe72d81bfa3ed9bcae7d4c7eba6f58f34eb5299",
+        ".research/results/react-luna/instances.tar.gz": "b40e5f000905a9731edaf44de64a856718516976f05132daf201c6d76146932b",
+        ".research/results/react-luna/metrics.json": "9433984a8e663c943cf3f743755bef09d8ab569cf6baed95f1ace744a91a068f",
+        ".research/results/react-luna/observed.json": "a0b937f52583f49a8056d4037bd53de5441e8bdb45ef02f42e11471a83d2d324",
+        ".research/results/react-luna/tokens.json": "d67a6ef656fb74918225816c691415987ab90668028690706648a5f383aa3e76"
+      }
     }
   }
 }
