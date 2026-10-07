@@ -54,6 +54,11 @@
               "model": "gemini/gemini-2.5-flash",
               "supported": false,
               "reason": "The citing text attributes \"temperature 1.0\" to the source and includes a reason for the number of ReAct experiments being 20 or less (\"iterations include code execution only iterations\") that are not present in the cited passage or its context."
+            },
+            {
+              "text_sha256": "43e7d4f67ddfdd4624a4db6b28f510ca9af9dcf324e218f6de7ca54ffbbd293b",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
             }
           ]
         },
@@ -71,6 +76,11 @@
               "text_sha256": "3affc0e74575dac7bbd0e5d7a62d328f77d69b280cb7167c28aa12ac7cc2b32e",
               "model": "gemini/gemini-2.5-flash",
               "supported": true
+            },
+            {
+              "text_sha256": "43e7d4f67ddfdd4624a4db6b28f510ca9af9dcf324e218f6de7ca54ffbbd293b",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
             }
           ]
         },
@@ -81,6 +91,11 @@
           "judgments": [
             {
               "text_sha256": "55bc8284ec39de9d77b4ba622f23be7ff38adec27c10ae4f87076bb2d3fed419",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
+            },
+            {
+              "text_sha256": "42efc456a8b9ec678c61f0c24626080a67a3ff0985a7ca2e2b119e26e7010d63",
               "model": "gemini/gemini-2.5-flash",
               "supported": true
             }
@@ -101,6 +116,11 @@
               "model": "gemini/gemini-2.5-flash",
               "supported": false,
               "reason": "The citing text specifies \"all species\" (全種の) when the passage only states \"time-series data\" without explicitly mentioning \"all species\"."
+            },
+            {
+              "text_sha256": "9726de5d241a9a8937c1bf82839dd9f49377f8073dcfdd2bbb95529ebdc2bd6a",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
             }
           ]
         },
@@ -150,6 +170,11 @@
               "model": "gemini/gemini-2.5-flash",
               "supported": false,
               "reason": "The citing text replaces 'reaction rates' with 'rate rates' with 'rate constants'."
+            },
+            {
+              "text_sha256": "42efc456a8b9ec678c61f0c24626080a67a3ff0985a7ca2e2b119e26e7010d63",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
             }
           ]
         },
@@ -176,6 +201,11 @@
               "model": "gemini/gemini-2.5-flash",
               "supported": false,
               "reason": "The citing text claims the range of RMS F1 values is 0.10-0.34, but the passage's context (Table 1) shows values as low as 0.0421, meaning the lower bound of the cited range is an overstatement."
+            },
+            {
+              "text_sha256": "dd2b816c02eb270140e4f2bc9cffe35dd9a32a97f69fb07864f1cf6ed049a7f6",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
             }
           ]
         },
@@ -188,6 +218,12 @@
               "text_sha256": "3affc0e74575dac7bbd0e5d7a62d328f77d69b280cb7167c28aa12ac7cc2b32e",
               "model": "gemini/gemini-2.5-flash",
               "supported": true
+            },
+            {
+              "text_sha256": "43e7d4f67ddfdd4624a4db6b28f510ca9af9dcf324e218f6de7ca54ffbbd293b",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": false,
+              "reason": "The citing text claims to use Controller.run_benchmark without modification. The passage s1.p11 only provides the definition of the run_benchmark method signature, not its class context (Controller) nor details about its usage (unmodified). The citing text adds information about the method's context and how it is used that is not present in the cited passage."
             }
           ]
         },
@@ -201,6 +237,11 @@
               "model": "gemini/gemini-2.5-flash",
               "supported": false,
               "reason": "The citing text claims \"唯一の口\" (the only interface) which is not stated in the passage, and \"全種の時系列が返る\" (returns time series for all species) which is contradicted by the `config.observed_species` check implying specific species can be requested."
+            },
+            {
+              "text_sha256": "9726de5d241a9a8937c1bf82839dd9f49377f8073dcfdd2bbb95529ebdc2bd6a",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
             }
           ]
         }
@@ -250,6 +291,11 @@
               "text_sha256": "89d77cbc7dadfedb5be4ba9bb6f01645ca576e85f1cf47fab735a96c12473562",
               "model": "gemini/gemini-2.5-flash",
               "supported": true
+            },
+            {
+              "text_sha256": "6f74ff1360bd2498bb963a23cb020ce9cf9cb8f3cddf9bece3c470b499b659b6",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
             }
           ]
         },
@@ -263,6 +309,11 @@
               "model": "gemini/gemini-2.5-flash",
               "supported": false,
               "reason": "The passage states the strategy improves \"sample efficiency\" under fixed budgets, but the citing text claims it improves \"mechanism recovery\". While related, the passage does not explicitly mention \"mechanism recovery\" for this specific contribution."
+            },
+            {
+              "text_sha256": "925470b2db2ecb626f14303e060dda4e7748329e2905b618dfbd289fcaf5c6f8",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
             }
           ]
         },
@@ -293,6 +344,11 @@
               "model": "gemini/gemini-2.5-flash",
               "supported": false,
               "reason": "The citing text adds specific model choices (openai/gpt-6-luna for large, meta/llama-3.1-8b as a substitute for small) and a reason for substitution (Vercel AI Gateway unavailability) that are not present in the cited passage. The passage names GPT-4o-mini and Qwen/Qwen2.5-7B-Instruct."
+            },
+            {
+              "text_sha256": "83de7c0f9afadb33a3852f2661b321562cc032980c99ab8ab4eaf26bc8e15d92",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
             }
           ]
         },
@@ -303,6 +359,11 @@
           "judgments": [
             {
               "text_sha256": "726b4170aa2f87f415859761b63d9ac522b1256c4a843abaf69853a664d9f835",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
+            },
+            {
+              "text_sha256": "925470b2db2ecb626f14303e060dda4e7748329e2905b618dfbd289fcaf5c6f8",
               "model": "gemini/gemini-2.5-flash",
               "supported": true
             }
@@ -342,6 +403,21 @@
               "model": "gemini/gemini-2.5-flash",
               "supported": false,
               "reason": "The citing text describes the implementation details of 'removing hypothesis-conditioned acquisition' (setting discrepancy score to 0, greedy selection based on diversity, filling concentration space independently of the hypothesis) and claims its ablation corresponds to the one mentioned in the cited passage. However, the cited passage only names the ablation and states its effect, without defining what 'hypothesis-conditioned acquisition' entails or how its removal is implemented. Therefore, the citing text adds information about the nature of this ablation that is not supported by the passage."
+            },
+            {
+              "text_sha256": "925470b2db2ecb626f14303e060dda4e7748329e2905b618dfbd289fcaf5c6f8",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
+            },
+            {
+              "text_sha256": "4d8594e1acd5c059f609abf52acc7a25c67d4d24d430cc303d8792ced61d25d7",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
+            },
+            {
+              "text_sha256": "a61ce479062206ecb570a65138b00c584cada6ed536b17bf235dc0de2f6da876",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
             }
           ]
         },
@@ -352,6 +428,11 @@
           "judgments": [
             {
               "text_sha256": "726b4170aa2f87f415859761b63d9ac522b1256c4a843abaf69853a664d9f835",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
+            },
+            {
+              "text_sha256": "925470b2db2ecb626f14303e060dda4e7748329e2905b618dfbd289fcaf5c6f8",
               "model": "gemini/gemini-2.5-flash",
               "supported": true
             }
@@ -412,6 +493,11 @@
               "text_sha256": "85b428699afea66425cc359c2368a8b09472d2cbb780fb83cde1555556e96f29",
               "model": "gemini/gemini-2.5-flash",
               "supported": true
+            },
+            {
+              "text_sha256": "83de7c0f9afadb33a3852f2661b321562cc032980c99ab8ab4eaf26bc8e15d92",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": true
             }
           ]
         },
@@ -424,6 +510,12 @@
               "text_sha256": "726b4170aa2f87f415859761b63d9ac522b1256c4a843abaf69853a664d9f835",
               "model": "gemini/gemini-2.5-flash",
               "supported": true
+            },
+            {
+              "text_sha256": "925470b2db2ecb626f14303e060dda4e7748329e2905b618dfbd289fcaf5c6f8",
+              "model": "gemini/gemini-2.5-flash",
+              "supported": false,
+              "reason": "The citing text specifies \"3 types of initial concentrations\" as input, which is not stated in the passage or generally implied by the provided context of the adapter definition, though initial concentrations as input are."
             }
           ]
         },
