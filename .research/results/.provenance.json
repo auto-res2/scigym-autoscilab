@@ -16,6 +16,23 @@
         ".research/results/autoscilab-luna/observed.json": "5e38444bd3b132dca914e1a5e73b8e1a4ec181ddd018bf9b7468726dfbe64dbb",
         ".research/results/autoscilab-luna/tokens.json": "89001ba34551b04f0e3e408734b1113e7448a329c3f0352402c2d2dfed7a2d70"
       }
+    },
+    "autoscilab-nohyp-luna": {
+      "execution_id": "37651409648",
+      "backend": "github_actions",
+      "commit_hash": "ef51f93253ba25eb990fc97da2bfa9f1e6966595",
+      "overrides": {
+        "mode": "full"
+      },
+      "parameters": {},
+      "files": {
+        ".research/results/autoscilab-nohyp-luna/eval_inputs/scigym_small.json.gz": "e45482f98f866f97c8e9c4b458d9dcefb2b7e5099fc8333d3c44825bb6d4caf4",
+        ".research/results/autoscilab-nohyp-luna/evaluation/scigym_small.json": "d77e4f877d0f5b57bfb17cd78a4e3482cca8a6272c198f0dfa573acd042fc1e3",
+        ".research/results/autoscilab-nohyp-luna/metrics.json": "bfd50a819d6e59710be69e790e1aa890c807336c94845eb4caaa0228f3a56213",
+        ".research/results/autoscilab-nohyp-luna/instances.tar.gz": "8653125c8e154ec79a2b41959c3efc09b5231a965b54ecda4479ba8204e5c8fa",
+        ".research/results/autoscilab-nohyp-luna/observed.json": "1050dee46460fd1268cc2f25d3cd959f8025af3ca54e719978f631bb2b841d15",
+        ".research/results/autoscilab-nohyp-luna/tokens.json": "b40b3b12d6ded080177b3de0e09ea05677be079c239b744638332e43d66c3bf1"
+      }
     }
   }
 }
