@@ -22,7 +22,7 @@
 \maketitle
 
 \begin{abstract}
-LLM-AutoSciLab \citep{kabra-2026-llm} は、複数の候補機構を明示的に持ち、候補どうしの予測が最も食い違う条件を次の実験に選ぶ閉ループの発見枠組みで、著者らのベンチマーク（NewtonBench、ActiveSciBench）では同じ実験予算で 2〜5 倍のサンプル効率を報告している。ただし評価されたのはスカラー応答を返すオラクルであり、全種の濃度時系列が観測され、答えを SBML として提出する SciGym \citep{duan-2025-measuring} の反応回復課題で同じ獲得則が効くかは示されていない。本研究は、SciGym のデータ（small 137 件）、実験の種類（初期濃度の変更）、正解モデルへの問い合わせ予算（20 回）、評価（公式 Evaluator の STE / RMS / NTS）をすべて固定したまま、手法だけを LLM-AutoSciLab の閉ループに替える。仮説は「不完全モデルに足す反応の集合 + 速度則 + 自由定数」として表し、公式コードの \texttt{EnsembleClient}（small モデル meta/llama-3.1-8b の K 並列サンプル）、\texttt{LLMClient}（large モデル openai/gpt-6-luna の整理）、\texttt{FalsificationSelector.select}（食い違い最大の点の貪欲多様選択）を無改変で呼び、SBML 固有の部分（反応集合の束ね、scipy による定数フィット、候補 SBML 間の log 濃度分散、ブートストラップ確信度、提出）をアダプタとして書く。比較相手は同じ gpt-6-luna で動かす SciGym 公式の ReAct エージェント、アブレーションは実験選択だけを仮説と無関係にした同じループである。実験前に 3 つの主張を凍結する: 手法 run の平均 STE が ReAct より 0.02 以上低い（c1）、アブレーションの平均 STE が手法 run より 0.01 以上高い（c2）、ReAct の RMS F1 が手法 run より 0.02 以上低い（c3）。
+LLM-AutoSciLab \citep{kabra-2026-llm} は、複数の候補機構を明示的に持ち、候補どうしの予測が最も食い違う条件を次の実験に選ぶ閉ループの発見枠組みで、著者らのベンチマーク（NewtonBench、ActiveSciBench）では同じ実験予算で 2〜5 倍のサンプル効率を報告している。ただし評価されたのはスカラー応答を返すオラクルであり、全種の濃度時系列が観測され、答えを SBML として提出する SciGym \citep{duan-2025-measuring} の反応回復課題で同じ獲得則が効くかは示されていない。本研究は、SciGym のデータ（small 137 件）、実験の種類（初期濃度の変更）、正解モデルへの問い合わせ予算（20 回）、評価（公式 Evaluator の STE / RMS / NTS）をすべて固定したまま、手法だけを LLM-AutoSciLab の閉ループに替える。仮説は「不完全モデルに足す反応の集合 + 速度則 + 自由定数」として表し、公式コードの \texttt{EnsembleClient}（small モデル meta/llama-3.1-8b の K 並列サンプル）、\texttt{LLMClient}（large モデル openai/gpt-6-luna の整理）、\texttt{FalsificationSelector.select}（食い違い最大の点の貪欲多様選択）を無改変で呼び、SBML 固有の部分（反応集合の束ね、scipy による定数フィット、候補 SBML 間の log 濃度分散、ブートストラップ確信度、提出）をアダプタとして書く。比較相手は同じ gpt-6-luna で動かす SciGym 公式の ReAct エージェント、アブレーションは実験選択だけを仮説と無関係にした同じループである。実験前に 3 つの主張を凍結する: 手法 run の平均 STE が ReAct より 0.02 以上低い（c1）、アブレーションの平均 STE が手法 run より 0.01 以上高い（c2）、ReAct の RMS F1 が手法 run より 0.02 以上低い（c3）。結果: 137 件で手法の平均 STE は \airasval{autoscilab-luna.trajectory_smape}、ReAct は \airasval{react-luna.trajectory_smape} で c1 は反証、アブレーションの STE は \airasval{autoscilab-nohyp-luna.trajectory_smape} で c2 も反証、RMS F1 は手法 \airasval{autoscilab-luna.reaction_f1} 対 ReAct \airasval{react-luna.reaction_f1} で c3 は支持された。反応の構造は手法の方がよく当たるが、速度則の文法の限界で軌道は ReAct に及ばず、仮説条件付きの実験選択はどちらの指標にも測れる差を与えなかった。
 \end{abstract}
 
 \section{はじめに}
@@ -100,15 +100,51 @@ GitHub Actions のランナー ubicloud-standard-2（x86\_64、2 vCPU、8 GB、G
 
 \section{結果}
 \label{sec:results}
-（実験後に記入）
+3 つの run はいずれも凍結コミットの子孫（記録の再宣言 58050f8 を含む履歴）で実行し、GitHub Actions の artifact から provenance 付きで取り込んだ。表~\ref{tab:main} に SciGym-small 137 件の平均値を示す。判定は記録の判定基準から機械的に導かれ、§\ref{sec:hypothesis} の一覧に Observed と Verdict として入っている。
+
+{\scriptsize\setlength{\tabcolsep}{3pt}%
+\let\origtabular\tabular\let\origendtabular\endtabular\newsavebox{\maintablebox}%
+\renewenvironment{tabular}[1]{\begin{lrbox}{\maintablebox}\origtabular{#1}}{\origendtabular\end{lrbox}\resizebox{\textwidth}{!}{\usebox{\maintablebox}}}%
+\input{tables/main.tex}}
+
+\paragraph{Claim 1（STE: 手法 vs ReAct）— 反証.}
+\texttt{autoscilab-luna} の平均 STE は \airasval{autoscilab-luna.trajectory_smape}、\texttt{react-luna} は \airasval{react-luna.trajectory_smape} で、差は $+0.098$（記録の Observed）であった。反証線は差 $\le -0.02$ で、予測区間は $[-0.10, -0.02]$ だったので、符号ごと外れている。手法の軌道誤差は ReAct より大きい。
+
+\paragraph{Claim 2（STE: アブレーション）— 反証.}
+\texttt{autoscilab-nohyp-luna} の平均 STE は \airasval{autoscilab-nohyp-luna.trajectory_smape} で、\texttt{autoscilab-luna} との差は $+0.005$。反証線の $\ge 0.01$ に届かず、予測区間 $[0.01, 0.08]$ の下側に外れた。実験選択を仮説と無関係にしても、137 件平均の STE は 1 回の実行のばらつき（§\ref{sec:design} で約 0.02 と見積もった）の中に収まる差しか生まなかった。
+
+\paragraph{Claim 3（RMS: ReAct vs 手法）— 支持.}
+修飾子なしの RMS F1 は \texttt{react-luna} が \airasval{react-luna.reaction_f1}、\texttt{autoscilab-luna} が \airasval{autoscilab-luna.reaction_f1} で、差は $-0.061$。反証線 $\le -0.02$ を満たし、予測区間 $[-0.15, -0.02]$ の中に入った。反応の構造（反応物と生成物の集合）の回復では手法が ReAct を上回る。
+
+\paragraph{判定に使わない指標.}
+NTS F1 も手法側が高い（ReAct \airasval{react-luna.topology_f1}、手法 \airasval{autoscilab-luna.topology_f1}、アブレーション \airasval{autoscilab-nohyp-luna.topology_f1}）。修飾子まで要求する厳格版の RMS F1 は ReAct \airasval{react-luna.reaction_f1_with_modifiers}、手法 \airasval{autoscilab-luna.reaction_f1_with_modifiers}、アブレーション \airasval{autoscilab-nohyp-luna.reaction_f1_with_modifiers} で、差は小さい。アブレーションの RMS F1 \airasval{autoscilab-nohyp-luna.reaction_f1} は手法より低いが ReAct より高い。有効な提出は ReAct \airasval{react-luna.n_valid_submissions} 件、手法 \airasval{autoscilab-luna.n_valid_submissions} 件、アブレーション \airasval{autoscilab-nohyp-luna.n_valid_submissions} 件（137 件中）で、提出に至らなかった件は不完全モデルのまま採点されている。
+
+\paragraph{予算とコスト.}
+1 件あたりの正解モデルへの問い合わせは、ReAct が \airasval{react-luna.mean_experiments} 回（上限 20 反復のうちコード実行だけの反復があるため）、手法とアブレーションは設計どおり \airasval{autoscilab-luna.mean_experiments} / \airasval{autoscilab-nohyp-luna.mean_experiments} 回。手法側は ReAct より少ない実験回数ではなく、同じかそれ以上の実験で ReAct に及ばなかった。LLM のトークン数は表~\ref{tab:main} のとおりで、入力トークンは手法側が ReAct より 1 桁少ない（会話全体を持ち回らず要約を渡すため）。出力トークンは 3 run で同程度である。一方、CPU 時間は手法側がはるかに大きく（候補 SBML のフィットと 2000 候補点のシミュレーション）、full の 1 run に 16 vCPU で \unverified{5〜6} 時間を要した。ReAct は 2 vCPU で約 \unverified{2} 時間、LLM の応答待ちが支配的だった。
+
+\paragraph{実行で起きたこと.}
+手法 run では \unverified{3} 件、アブレーションでは \unverified{8} 件が、3 回の試行すべてで「15 分間出力なし」の打ち切りに当たり、提出に至らなかった（上の有効提出数の差）。打ち切りはいずれも最終反復（実験 17〜20 回目）の仮説サンプリング後に起きており、原因は切り分けられていない（large モデルの応答待ち、または正解モデルのシミュレーションが極端な初期濃度で止まった可能性がある）。候補 SBML のシミュレーションを隔離した子プロセスの時間切れによる作り直しは、手法 run で \unverified{0} 回、アブレーションで \unverified{1} 回だった。ReAct は 137 件すべてが提出に至り、文脈超過は \airasval{react-luna.n_context_overflow} 件であった。完走した件のループの統計（記録外、件ごとの trace.json から集計）: 手法 run の \unverified{134} 件のうち、最終候補の log 濃度 RMSE（フィット誤差）が 0.1 未満だったのは \unverified{19} 件、1 を超えたのは \unverified{43} 件、中央値は \unverified{0.61}。確信度が閾値 0.9 に達して Refine モードに入った件は \unverified{77} 件で、そのうち \unverified{55} 件は 1 反復目の直後に入っている。残りの \unverified{44} 件は 5 反復とも Disambiguate のままだった（$R^2 < 0.5$ で確信度 0）。アブレーションでも分布はほぼ同じ（\unverified{129} 件中、Refine に入ったのが \unverified{71} 件、うち 1 反復目直後が \unverified{53} 件、Disambiguate のままが \unverified{48} 件）。
 
 \section{考察}
 \label{sec:discussion}
-（実験後に記入）
+\paragraph{仮説 h1 は支持されなかった.}
+3 つの主張のうち、STE に関する c1 と c2 は反証され、RMS に関する c3 だけが支持された。h1 は「低い STE と高い RMS を出し、その改善は実験選択則による」と述べていたので、全体としては支持されない。結果が示すのは、仮説を反応集合として明示的に並べてフィットする枠組みが反応の構造（RMS、NTS）の回復では ReAct を上回る一方、軌道（STE）は ReAct に及ばず、しかも仮説条件付きの実験選択はそのどちらにも測れる差を与えなかった、ということである。
+
+\paragraph{構造は当たるが軌道が外れる.}
+手法が提出する SBML は、本研究の文法（質量作用、Michaelis--Menten、Hill とその定数）で書かれた速度則を持つ。完走した 134 件のうち 43 件はフィット誤差（log 濃度の RMSE）が 1 を超えており、これらは実験データ自体を再現できていない。SciGym の正解モデルの速度則には、多項式や差の形、複数の Hill 項の積など本研究の文法にない形が多く含まれる。ReAct は libSBML を直接書くので速度則の形に制約がなく、観測した軌道に合わせた式を書ける。構造の回復（反応物・生成物の集合）は速度則の形に依存しないので手法の得意な部分だけが出た、と読める。提出に至らなかった 3 件（不完全モデルで採点）も手法側の STE を押し上げている。STE の差（0.098）のうちどれだけがこの 3 件によるかは、記録に件ごとの値を宣言していないので本稿では数えない。
+
+\paragraph{実験選択則が効かなかった理由の候補.}
+第一に、確信度ゲートが早く開きすぎた。手法 run の 77 件は閾値 0.9 に達して Refine モードに入り、うち 55 件は 1 反復目（実験 5 回）の直後である。Refine モードでは本命の再フィット同士が割れる点を選ぶので、競合する候補を分ける実験（Disambiguate）は 1 反復しか行われていない。ブートストラップ確信度は「再フィットの安定性」を測るもので、本研究で $R^2 \ge 0.5$ のゲートを加えてもなお、当てはまりが中程度の候補で高い値を出す。第二に、44 件は $R^2 < 0.5$ で 5 反復とも Disambiguate にとどまった。候補の文法が正解の機構を表せないとき、どの実験を選んでも候補集合の中に正解がないので、食い違いで選ぶ利点は出ない。第三に、アブレーション（食い違いスコア 0、多様性のみ）の実験は濃度空間を広く埋める配置になり、初期濃度の変更という摂動では、それだけで候補を分けるのに十分な情報が得られていた可能性がある。論文が仮説条件付き獲得を外すと全ベンチマークで大きく低下したと報告したのは \cite[s2.p7]{kabra-2026-llm}、1 回の問い合わせが 1 つの値を返すオラクル \cite[s2.p5]{kabra-2026-llm} の上でのことである。SciGym では 1 回の実験で全種の時系列が観測できるので、1 回の実験が持つ情報量が多く、どの点を選ぶかの差が小さくなるのは不自然ではない（これは本研究の解釈である）。
+
+\paragraph{コストの非対称.}
+手法側の LLM 入力トークンは ReAct の約 \unverified{13} 分の 1（表~\ref{tab:main}）であり、LLM の費用では有利である。代わりに CPU 時間を大量に使う（1 件あたり数十分）。費用の軸を LLM トークンに置くか計算時間に置くかで評価は変わるが、本研究の判定基準は性能だけであり、この非対称は主張に含めていない。
+
+\paragraph{限界.}
+本研究の手法 run は LLM-AutoSciLab そのものではなく、その獲得則と LLM クライアントを公式コードから借り、SBML 固有の部分（仮説の表現と翻訳、定数フィット、確信度、提出）を本研究が書いたものである（§\ref{sec:method}）。したがって結果は「仮説条件付き獲得を SBML の機構回復に移植した一つの実装」についてのものであり、著者らの実装の性能を直接示すものではない。特に速度則の文法は本研究の選択であり、c1 の反証はその文法の限界と不可分である。small モデルは論文の Qwen2.5-7B-Instruct ではなく meta/llama-3.1-8b、large は GPT-4o-mini ではなく gpt-6-luna である。各件 1 回・temperature 1.0 の実行なので、137 件平均の標準誤差は 0.02 程度と見積もられ、c2 の差（0.005）はこの幅の中にある。提出に至らなかった件の原因は切り分けられていない。計算環境は full の途中で変えておらず、pilot と full の間に記録を再宣言して並列数と打ち切り時間を変えた（§\ref{sec:design}、記録の notes）。
 
 \section{結論}
 \label{sec:conclusion}
-（実験後に記入）
+LLM-AutoSciLab の閉ループを SciGym の反応回復課題に移植し、同じ gpt-6-luna で動かした SciGym 公式 ReAct と 137 件で比べた。反応の構造の回復（RMS F1）では手法が ReAct を上回り（c3 支持）、軌道の誤差（STE）では ReAct に及ばず（c1 反証）、実験選択を仮説と無関係にしても STE は変わらなかった（c2 反証）。仮説条件付き獲得がスカラー応答のオラクルの外でも効く、という仮説は本研究の実装と条件では支持されなかった。次に調べる価値があるのは、速度則の文法を広げる（または ReAct のように LLM に速度則を書かせて定数だけフィットする）ことと、確信度ゲートの閾値や $R^2$ の下限を SciGym の尺度で決め直すことである。いずれも新しい事前登録が要る。
 
 \section*{データの利用可能性}
 記録は \airasrecordlink{record.json} にある。実験コード、環境の固定（Dockerfile と \texttt{uv.lock}）、各 run の結果と provenance は同じリポジトリに含まれる。
